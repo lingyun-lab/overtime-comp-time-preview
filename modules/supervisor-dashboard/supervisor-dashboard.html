@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>主管工作台 - 加班调休管理系统</title>
+  <link rel="stylesheet" href="supervisor-dashboard.css">
+</head>
+<body data-active="supervisor-dashboard">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="workspace">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <h1 class="page-title">主管工作台</h1>
+        <p class="page-subtitle">展示主管授权范围内待审批、团队统计和调休余额。</p>
+
+<section class="card">
+  <div class="card-body filter compact">
+    <div class="field"><label>统计周期</label><div class="date-range"><input id="cycleStart" type="text" class="date-input" placeholder="yyyy-mm-dd" value="2026-01-01"><span>至</span><input id="cycleEnd" type="text" class="date-input" placeholder="yyyy-mm-dd" value="2026-12-31"></div></div>
+    <div class="field"><label>授权部门</label><select id="dept"><option>全部授权部门</option><option>产品部</option><option>研发一部</option><option>研发二部</option></select></div>
+    <div class="btn-row"><button class="btn primary" onclick="dashboardQuery()">查询</button><button class="btn" onclick="dashboardReset()">重置</button></div>
+  </div>
+</section>
+<section class="grid grid-4">
+  <div class="kpi"><div class="kpi-label">待审批申请</div><div class="kpi-value" id="pendingKpi">2</div><div class="kpi-note"><a href="../todo/todo.html" style="color:#1677ff">进入我的待办</a></div></div>
+  <div class="kpi"><div class="kpi-label">团队年度加班时长</div><div class="kpi-value">176h</div><div class="kpi-note">仅统计已通过申请</div></div>
+  <div class="kpi"><div class="kpi-label">团队年度调休时长</div><div class="kpi-value">44h</div><div class="kpi-note">按调休时间明细聚合</div></div>
+  <div class="kpi"><div class="kpi-label">累计剩余调休余额</div><div class="kpi-value">226h</div><div class="kpi-note">历史余额+加班-调休</div></div>
+</section>
+<section class="grid grid-2">
+  <div class="card"><div class="card-head"><div class="card-title">团队加班 / 调休月度趋势</div></div><div class="card-body"><div id="teamChart" class="chart"></div></div></div>
+  <div class="card"><div class="card-head"><div class="card-title">团队加班排行</div><button class="btn small" onclick="location.href='../reports/reports.html'">查看报表</button></div><div class="card-body"><div id="rankList" class="rank-list"></div></div></div>
+</section>
+
+      </main>
+    </section>
+  </div>
+  <script src="supervisor-dashboard_mock.js"></script>
+  <script src="supervisor-dashboard.js"></script>
+</body>
+</html>

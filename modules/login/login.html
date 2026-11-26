@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>登录 - 加班调休管理系统</title>
+  <link rel="stylesheet" href="login.css">
+</head>
+<body>
+  <header class="home-header">
+    <div class="home-brand"><div class="brand-mark small">勤</div><span>加班调休管理系统</span></div>
+    <div class="home-actions">
+      <button class="home-link" onclick="openRegisterModal()">注册</button><button class="home-link secondary" onclick="openHelpModal()">帮助</button>
+    </div>
+  </header>
+  <main class="login-page" id="loginSection">
+    <section class="login-hero">
+      <div class="brand-line"><div class="brand-mark">勤</div><span>加班调休管理系统</span></div>
+      <h1>加班申请与<br>调休管理</h1>
+      <p>为企业提供加班、调休、审批、余额核算和报表统计的一体化管理能力。</p>
+      <ul>
+        <li>智能加班申请与审批流程</li>
+        <li>实时调休余额查询与管理</li>
+        <li>多维度数据统计与报表导出</li>
+        <li>按登录用户控制菜单与功能范围</li>
+      </ul>
+    </section>
+    <section class="login-panel">
+      <div class="login-box">
+        <h2>欢迎回来</h2>
+        <p>选择演示角色和预置用户即可进入工作台。</p>
+        <div class="role-cards">
+          <button class="role-card active" data-role="主管" onclick="selectRole('主管')"><span>👔</span><strong>主管</strong><em>审批管理、团队统计、系统配置</em></button>
+          <button class="role-card" data-role="员工" onclick="selectRole('员工')"><span>👤</span><strong>员工</strong><em>个人申请、余额查询</em></button>
+        </div>
+        <label class="field-label">选择用户</label>
+        <select id="loginUser"></select>
+        <button class="login-btn" onclick="doLogin()">登录进入 →</button>
+        <div class="login-tip">用户账号由员工信息管理维护，登录后按账号角色展示菜单与功能范围。</div>
+        <div class="demo-users" id="demoUsers"></div>
+      </div>
+    </section>
+  </main>
+  <script src="login_mock.js"></script>
+  <script src="login.js"></script>
+</body>
+</html>

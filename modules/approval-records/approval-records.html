@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>审批记录查询 - 加班调休管理系统</title>
+  <link rel="stylesheet" href="approval-records.css">
+</head>
+<body data-active="approval-records">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="workspace">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <h1 class="page-title">审批记录查询</h1>
+        <p class="page-subtitle">查询主管授权范围内已处理的审批记录，支持详情查看和导出。</p>
+
+<section class="card">
+  <div class="card-body filter">
+    <div class="field"><label>申请类型</label><select id="qType"><option value="">全部</option><option>加班申请</option><option>调休申请</option></select></div>
+    <div class="field"><label>申请人</label><input id="qApplicant" placeholder="请输入申请人"></div>
+    <div class="field"><label>所属部门</label><input id="qDept" placeholder="请输入部门"></div>
+    <div class="field"><label>申请时间段</label><div class="date-range"><input id="qStart" type="text" class="date-input" placeholder="yyyy-mm-dd"><span>至</span><input id="qEnd" type="text" class="date-input" placeholder="yyyy-mm-dd"></div></div>
+    <div class="field"><label>审批结果</label><select id="qResult"><option value="">全部</option><option>已通过</option><option>已驳回</option></select></div>
+    <div class="btn-row"><button class="btn primary" onclick="renderRecords();toast('已查询审批记录。','success')">查询</button><button class="btn" onclick="resetRecords()">重置</button></div>
+  </div>
+</section>
+<section class="card">
+  <div class="card-head action-only"><button class="btn" onclick="exportConfirm('审批记录')">导出</button></div>
+  <div class="card-body"><div id="recordTable"></div></div>
+</section>
+
+      </main>
+    </section>
+  </div>
+  <script src="approval-records_mock.js"></script>
+  <script src="approval-records.js"></script>
+</body>
+</html>

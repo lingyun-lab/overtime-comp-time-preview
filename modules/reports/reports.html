@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>报表统计 - 加班调休管理系统</title>
+  <link rel="stylesheet" href="reports.css">
+</head>
+<body data-active="reports">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="workspace">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <h1 class="page-title">报表统计</h1>
+        <p class="page-subtitle">统计已通过申请，提供汇总表、月度分布和原始明细记录。</p>
+        <div class="note stat-rule-note"><strong>统计规则：</strong>仅统计已通过申请；加班/调休按时间明细汇总，跨日调休按日期拆分后统计。</div>
+
+<section class="card">
+  <div class="card-body filter">
+    <div class="field"><label>所属部门</label><input id="qDept" placeholder="请输入部门"></div>
+    <div class="field"><label>申请人</label><input id="qName" placeholder="请输入员工姓名"></div>
+    <div class="field"><label>申请时间段</label><div class="date-range"><input id="qStart" type="text" class="date-input" placeholder="yyyy-mm-dd"><span>至</span><input id="qEnd" type="text" class="date-input" placeholder="yyyy-mm-dd"></div></div>
+    <div class="btn-row"><button class="btn primary" onclick="renderReport();toast('已刷新报表。','success')">查询</button><button class="btn" onclick="resetReport()">重置</button></div>
+  </div>
+</section>
+<section class="card">
+  <div class="card-head action-only"><button class="btn" onclick="exportCurrentReport()">导出</button></div>
+  <div class="card-body">
+    <div class="tabs"><div class="tab active" data-main="summary" onclick="switchMain('summary')">汇总统计</div><div class="tab" data-main="detail" onclick="switchMain('detail')">明细记录</div></div>
+    <div id="subTabs" class="secondary-tabs"></div>
+    <div id="reportArea"></div>
+  </div>
+</section>
+
+      </main>
+    </section>
+  </div>
+  <script src="reports_mock.js"></script>
+  <script src="reports.js"></script>
+</body>
+</html>

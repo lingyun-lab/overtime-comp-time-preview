@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>员工信息管理 - 加班调休管理系统</title>
+  <link rel="stylesheet" href="employees.css">
+</head>
+<body data-active="employees">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="workspace">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <h1 class="page-title">员工信息管理</h1>
+        <p class="page-subtitle">维护员工基础信息、手机号、邮箱、角色和账号状态，为审批、消息通知、报表和数据权限提供基础数据。</p>
+
+<section class="card">
+  <div class="card-body filter">
+    <div class="field"><label>员工姓名</label><input id="qName" placeholder="请输入员工姓名"></div>
+    <div class="field"><label>所属部门</label><input id="qDept" placeholder="请输入所属部门"></div>
+    <div class="field"><label>岗位</label><input id="qPost" placeholder="请输入岗位"></div>
+    <div class="field"><label>账号状态</label><select id="qStatus"><option value="">全部</option><option>启用</option><option>停用</option></select></div>
+    <div class="btn-row"><button class="btn primary" onclick="renderEmployees();toast('已查询员工。','success')">查询</button><button class="btn" onclick="resetEmployees()">重置</button></div>
+  </div>
+</section>
+<section class="card">
+  <div class="card-head action-only"><div class="btn-row"><button class="btn primary" onclick="openEmployeeForm()">新增员工信息</button><button class="btn" onclick="exportConfirm('员工信息')">导出</button></div></div>
+  <div class="card-body"><div id="empTable"></div></div>
+</section>
+
+      </main>
+    </section>
+  </div>
+  <script src="employees_mock.js"></script>
+  <script src="employees.js"></script>
+</body>
+</html>

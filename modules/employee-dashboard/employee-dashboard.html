@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>员工工作台 - 加班调休管理系统</title>
+  <link rel="stylesheet" href="employee-dashboard.css">
+</head>
+<body data-active="employee-dashboard">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="workspace">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <h1 class="page-title">员工工作台</h1>
+        <p class="page-subtitle">展示当前员工本人加班、调休、余额和待审批数量。</p>
+
+<section class="card">
+  <div class="card-body filter compact">
+    <div class="field"><label>统计周期</label><div class="date-range"><input id="cycleStart" type="text" class="date-input" placeholder="yyyy-mm-dd" value="2026-01-01"><span>至</span><input id="cycleEnd" type="text" class="date-input" placeholder="yyyy-mm-dd" value="2026-12-31"></div></div>
+    <div class="btn-row"><button class="btn primary" onclick="dashboardQuery()">查询</button><button class="btn" onclick="dashboardReset()">重置</button></div>
+  </div>
+</section>
+<section class="grid grid-4">
+  <div class="kpi"><div class="kpi-label">本人年度加班时长</div><div class="kpi-value">40h</div><div class="kpi-note">已通过申请</div></div>
+  <div class="kpi"><div class="kpi-label">本人年度调休时长</div><div class="kpi-value">16h</div><div class="kpi-note">按调休时间明细聚合</div></div>
+  <div class="kpi"><div class="kpi-label">当前可调休余额</div><div class="kpi-value">50h</div><div class="kpi-note">与报表累计剩余余额同规则</div></div>
+  <div class="kpi"><div class="kpi-label">待审批申请</div><div class="kpi-value">2</div><div class="kpi-note">本人待审批申请数量</div></div>
+</section>
+<section class="grid grid-2">
+  <div class="card"><div class="card-head"><div class="card-title">本人近 12 个月加班 / 调休趋势</div></div><div class="card-body"><div id="personalChart" class="chart"></div></div></div>
+  <div class="card"><div class="card-head"><div class="card-title">调休余额使用情况</div></div><div class="card-body">
+    <div class="donut-panel">
+      <div class="donut" style="--used:24"><div><strong>24%</strong><span>余额使用率</span></div></div>
+      <div class="donut-info">
+        <div><span class="dot used"></span>已使用调休：16h</div>
+        <div><span class="dot remain"></span>剩余调休余额：50h</div>
+        <div class="donut-note">规则：历史余额 + 年度加班 - 年度调休</div>
+      </div>
+    </div>
+    <div class="note" style="margin-top:12px">调休申请时系统会读取当前可调休余额；余额不足时允许提交但会在申请、审批和报表详情中显示提醒。</div>
+  </div></div>
+</section>
+
+      </main>
+    </section>
+  </div>
+  <script src="employee-dashboard_mock.js"></script>
+  <script src="employee-dashboard.js"></script>
+</body>
+</html>

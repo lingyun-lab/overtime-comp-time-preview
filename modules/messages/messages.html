@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>消息管理 - 加班调休管理系统</title>
+  <link rel="stylesheet" href="messages.css">
+</head>
+<body data-active="messages">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="workspace">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <h1 class="page-title">消息管理</h1>
+        <p class="page-subtitle">维护消息模板与发送记录，覆盖提交审批、审批通过、审批驳回、撤回等节点通知。</p>
+
+<section class="card">
+  <div class="card-body filter">
+    <div class="field"><label>模板名称</label><input id="qName" placeholder="请输入模板名称"></div>
+    <div class="field"><label>触发节点</label><select id="qNode"><option value="">全部</option><option>提交审批</option><option>审批通过</option><option>审批驳回</option><option>撤回</option></select></div>
+    <div class="field"><label>发送渠道</label><select id="qChannel"><option value="">全部</option><option>钉钉</option><option>邮件</option><option>短信</option></select></div>
+    <div class="field"><label>模板状态</label><select id="qStatus"><option value="">全部</option><option>启用</option><option>停用</option><option>成功</option><option>失败</option></select></div>
+    <div class="btn-row"><button class="btn primary" onclick="renderMessages();toast('已查询消息数据。','success')">查询</button><button class="btn" onclick="resetMessages()">重置</button></div>
+  </div>
+</section>
+<section class="card">
+  <div class="card-head action-only"><div class="btn-row"><button class="btn primary" id="addTplBtn" onclick="openTplForm()">新增消息模板</button><button class="btn" onclick="exportConfirm('消息管理')">导出</button></div></div>
+  <div class="card-body">
+    <div class="tabs"><div class="tab active" data-tab="tpl" onclick="switchMsgTab('tpl')">消息模板</div><div class="tab" data-tab="record" onclick="switchMsgTab('record')">发送记录</div></div>
+    <div id="msgTable"></div>
+  </div>
+</section>
+
+      </main>
+    </section>
+  </div>
+  <script src="messages_mock.js"></script>
+  <script src="messages.js"></script>
+</body>
+</html>

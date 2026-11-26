@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>操作日志管理 - 加班调休管理系统</title>
+  <link rel="stylesheet" href="logs.css">
+</head>
+<body data-active="logs">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="workspace">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <h1 class="page-title">操作日志管理</h1>
+        <p class="page-subtitle">查询系统操作日志，记录操作对象、执行结果、失败原因、IP 和客户端。</p>
+
+<section class="card">
+  <div class="card-body filter">
+    <div class="field"><label>操作时间</label><div class="date-range"><input id="qStart" type="text" class="date-input" placeholder="yyyy-mm-dd"><span>至</span><input id="qEnd" type="text" class="date-input" placeholder="yyyy-mm-dd"></div></div>
+    <div class="field"><label>操作人</label><input id="qOperator" placeholder="请输入操作人"></div>
+    <div class="field"><label>操作对象</label><input id="qObject" placeholder="请输入对象编号 / 名称"></div>
+    <div class="field"><label>功能模块</label><input id="qModule" placeholder="请输入功能模块"></div>
+    <div class="btn-row"><button class="btn primary" onclick="renderLogs();toast('已查询日志。','success')">查询</button><button class="btn" onclick="resetLogs()">重置</button></div>
+  </div>
+</section>
+<section class="card">
+  <div class="card-head action-only"><button class="btn" onclick="exportLogs()">导出</button></div>
+  <div class="card-body"><div id="logTable"></div></div>
+</section>
+
+      </main>
+    </section>
+  </div>
+  <script src="logs_mock.js"></script>
+  <script src="logs.js"></script>
+</body>
+</html>

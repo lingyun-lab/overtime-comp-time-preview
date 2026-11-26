@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>规则流程配置 - 加班调休管理系统</title>
+  <link rel="stylesheet" href="rules.css">
+</head>
+<body data-active="rules">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="workspace">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <h1 class="page-title">规则流程配置</h1>
+        <p class="page-subtitle">由具备最高权限的主管角色维护规则模板；系统在申请提交时自动匹配并执行启用规则，申请人和审批人不手动选择规则。</p>
+
+<section class="card">
+  <div class="card-body filter">
+    <div class="field"><label>规则分组</label><select id="qGroup"><option value="">全部</option><option>时长规则</option><option>余额规则</option><option>审批流程规则</option><option>消息触发规则</option></select></div>
+    <div class="field"><label>规则模板</label><select id="qTemplate"><option value="">全部</option><option>加班时长规则</option><option>调休时长规则</option><option>剩余调休时长计算规则</option><option>审批流程规则</option><option>消息触发规则</option></select></div>
+    <div class="field"><label>规则名称</label><input id="qName" placeholder="请输入规则名称"></div>
+    <div class="field"><label>状态</label><select id="qStatus"><option value="">全部</option><option>启用</option><option>停用</option><option>草稿</option></select></div>
+    <div class="btn-row"><button class="btn primary" onclick="renderRules();toast('已查询规则。','success')">查询</button><button class="btn" onclick="resetRules()">重置</button></div>
+  </div>
+</section>
+<section class="card">
+  <div class="card-head action-only"><div class="btn-row"><button class="btn primary" onclick="openRuleForm()">新增</button><button class="btn" onclick="exportConfirm('规则总览')">导出</button></div></div>
+  <div class="card-body"><div id="ruleTable"></div></div>
+</section>
+
+      </main>
+    </section>
+  </div>
+  <script src="rules_mock.js"></script>
+  <script src="rules.js"></script>
+</body>
+</html>

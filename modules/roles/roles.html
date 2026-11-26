@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>角色权限配置 - 加班调休管理系统</title>
+  <link rel="stylesheet" href="roles.css">
+</head>
+<body data-active="roles">
+  <div class="app">
+    <aside id="sidebar" class="sidebar"></aside>
+    <section class="workspace">
+      <header id="topbar" class="topbar"></header>
+      <main class="content">
+        <h1 class="page-title">角色权限配置</h1>
+        <p class="page-subtitle">配置功能权限和数据权限，控制员工登录后可访问菜单和高权限操作。</p>
+
+<section class="card">
+  <div class="card-body filter three">
+    <div class="field"><label>角色名称</label><input id="qRole" placeholder="请输入角色名称"></div>
+    <div class="field"><label>角色状态</label><select id="qStatus"><option value="">全部</option><option>启用</option><option>停用</option></select></div>
+    <div class="field"><label>数据范围</label><select id="qScope"><option value="">全部</option><option>本人</option><option>所属部门</option><option>所有数据</option></select></div>
+    <div class="btn-row"><button class="btn primary" onclick="renderRoles();toast('已查询角色。','success')">查询</button><button class="btn" onclick="resetRoles()">重置</button></div>
+  </div>
+</section>
+<section class="card">
+  <div class="card-head action-only"><button class="btn primary" onclick="openRoleForm()">新增角色</button></div>
+  <div class="card-body"><div id="roleTable"></div></div>
+</section>
+
+      </main>
+    </section>
+  </div>
+  <script src="roles_mock.js"></script>
+  <script src="roles.js"></script>
+</body>
+</html>
